@@ -1,22 +1,39 @@
+# coding=windows-1251
 import g4f
+import time
 from g4f.Provider import (
-    Acytoo,
-    Aichat,
-    Ails,
-    AiService,
-    AItianhu,
-    Bard,
+    Chatgpt4Online,
+    PerplexityLabs,
+    ChatgptDemoAi,
+    GeminiProChat,
+    ChatgptNext,
+    HuggingChat,
+    ChatgptDemo,
+    FreeChatgpt,
+    GptForLove,
     ChatgptAi,
-    ChatgptLogin,
-    GetGpt
+    DeepInfra,
+    ChatBase,
+    Liaobots,
+    FreeGpt,
+    Llama2,
+    Vercel,
+    Gemini,
+    GptGo,
+    Gpt6,
+    You,
+    Pi,
 )
+def get_responce(content):
+    response = g4f.ChatCompletion.create(
+        model=g4f.models.default,
+        provider=GeminiProChat,
+        messages=[{"role": "user", "content": content}],
+        stream=True,
+    )
 
-content = input()
-response = g4f.ChatCompletion.create(
-    model="gpt-4",
-    messages=[{"role": "user", "content": "content"}],
-    stream=True,
-)
-
-for message in response:
-    print(message, flush=True, end='')
+    message = ''
+    
+    for word in response:
+        message += word
+    return message
