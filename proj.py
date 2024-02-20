@@ -21,8 +21,8 @@ def send_text_message(user_id, text):
         message = 'Попробуйте еще раз'
     if message is None or len(message) < 1:
         message = 'Попробуйте еще раз'
-    if len(message) >= 300:
-        message = message[:300]
+    if len(message) >= 500:
+        message = message[:500]
     try: 
         bot.send_message(user_id, message)
     except:
