@@ -18,13 +18,13 @@ def send_text_message(user_id, text):
     try:
         message = gptmessage.get_responce(text)
     except:
-        message = 'Попробуйте еще раз'
+        message = 'Try again'
     if message is None or len(message) < 1:
-        message = 'Попробуйте еще раз'
+        message = 'Try again'
     if len(message) >= 4000:
         message = message[:4000]
-    try: 
+    try:
         bot.send_message(user_id, message)
     except:
-        bot.send_message(user_id, 'Попробуйте еще раз')
+        bot.send_message(user_id, 'Try again')
 bot.infinity_polling()
